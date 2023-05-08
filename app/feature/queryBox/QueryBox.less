@@ -1,0 +1,204 @@
+@import "../../style/color.less";
+@import "../../style/mixin.less";
+
+.queryBoxContainer{
+    padding: 6px 0;
+    .optionContainer{
+        display: inline-block;
+        min-width: 120px;
+        position: relative;
+        height: 35px;
+        .optionButton{
+            width: 100%;
+            background: @primaryFg;
+            border: none;
+            padding: 7px 15px;
+            color: @em9fg;
+            font-size: 14px;
+            border-radius: 5px 0 0 5px;
+            height: 35px;
+        }
+        .optionList{
+            position: absolute;
+            z-index: 9999;
+            top: 36px;
+            list-style: none;
+            background: @primaryFg;
+            padding: 4px 8px;
+            width: 100%;
+            box-shadow: 0px 2px 4px @primaryBg;
+            .optionItem{
+                padding: 3px 0;
+                color: @em4fg;
+                &:hover{
+                    background-color: darken(@primaryFg, 10%);
+                    color: darken(@em4fg, 20%);
+                    .onHover;
+                }
+            }
+        }
+    }
+    @input_container_width: 440px;
+    .inputContainer{
+        display: inline-block;
+        margin-left: 1px;
+        margin-right: 1px;
+        position: relative;
+        min-width: @input_container_width;
+        .input{
+            width: 100%;
+            padding-left: 5px;
+            height: 35px;
+            border: none;
+            border-radius: 0 0 0 0;
+            //border-radius: 0 5px 5px 0;
+            &:focus,&:active{
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        .goButton{
+            background-color: transparent;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            color: @em3fg;
+            &:hover{
+                color: darken(@em3fg,30%);
+                .onHover;
+            }
+            &:focus, &:active{
+                outline: none;
+            }
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            line-height: 35px;
+            font-size: 22px;
+            padding:0;
+        }
+        .warningContainer{
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            color: #D96936;
+            font-size: 10px;
+        }
+        .autocompleteContainer{
+            padding: 5px;
+            position: absolute;
+            z-index: 999;
+            top: 40px; 
+            left: 1px;
+            background-color: @primaryFg;
+            min-width: @input_container_width;
+            box-shadow: 0px 2px 4px @primaryBg;
+            text-align: left;
+            color: @em3fg;
+            .suggestionEntry{
+                &:hover{
+                    background-color: lighten(@em1fg, 10%);
+                    color: darken(@em3fg, 10%);
+                    cursor: pointer;
+                }
+                margin: 0;
+                padding: 5px 3px;
+                &>div{
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+
+    .search-option-container{
+        margin-top: 10px;
+        .search-option-label{
+            color: @em2bg;
+            display:inline-block;
+            font-weight: 100;
+        }
+        .search-option-value{
+            display: inline-block;
+            color: @em2bg;
+            background-color: transparent;
+            padding: 0;
+            border: none;
+            width: 100%;
+            border-bottom: 1px solid @em1bg;
+            box-shadow: none;
+            &:focus, &:active{
+                box-shadow: none;
+                outline: none;
+            }
+        }
+    }
+    .fileUploader{
+        display: none;
+    }
+    .fileUploaderLabel{
+        color: @em3fg;
+        display: inline-block;
+        padding: 5px 6px;
+        border-radius: 5px;
+        background-color: @primaryFg;
+        margin-left: 5px;
+        &:hover,&:active{
+            background-color: @em1fg;
+            color: darken(@em3fg,10%);
+            .onHover;
+        }
+    }
+
+    .advancedOptions{
+        color: @em3fg;
+        display: inline-block;
+        padding: 5px 6px;
+        border-radius: 5px;
+        background-color: @primaryFg;
+        margin-left: 5px;
+        &:hover,&:active{
+            background-color: @em1fg;
+            color: darken(@em3fg,10%);
+            .onHover;
+        }
+    }
+
+    .AdvancedContainer{
+        display: inline-block;
+        min-width: 120px;
+        position: relative;
+        height: 35px;
+        .AdvancedButton{
+            width: 100%;
+            background: @primaryFg;
+            border: none;
+            padding: 7px 15px;
+            color: darken(@em3fg,10%);
+            font-size: 14px;
+            border-radius: 0 5px 5px 0;
+            height: 35px;
+        }
+    }
+
+    .uploadContainer{
+        display: inline-block;
+        min-width: 120px;
+        position: relative;
+        height: 35px;
+
+        .uploadButton{
+            width: 100%;
+            background: @primaryFg;
+            border: none;
+            padding: 7px 15px;
+            color: darken(@em3fg,10%);
+            font-size: 14px;
+            border-radius: 0 5px 5px 0;
+            height: 35px;
+        }
+    }
+
+
+}
+
+

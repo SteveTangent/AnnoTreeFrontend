@@ -1,0 +1,221 @@
+ ✔ loading bar @done (16-11-08 10:32)
+ ✔ back button @done (16-11-07 14:19)
+ ✔ no click on leaves @done (16-11-08 10:32)
+ ☐ optimize for query speed
+ ☐ add highlight by taxonomy id
+ ✔ highlight path  @done (16-11-08 15:05)
+ ☐ set length to reflect branch length
+ ✔ collapse and uncollapse nodes @done (16-11-08 12:16)
+   ✔ apparently collapsing does not work @done (16-11-08 12:16)
+ ☐ make sure text does not get hidden
+
+
+Next Steps:
+   ✔ show the actual hits for protein (when hovering) @done (16-11-09 14:49)
+      ✔ display the number of seqs, as well as top K seqs for non-leaf nodeds @done (16-11-09 14:49)
+   ✔ grey out the ones without proteome attached @done (16-11-09 15:17)
+   ✔ change labels such as "0" or "root" to be "unclassified" @done (16-11-09 15:22)
+   ✔ show leaves more clearly @done (16-11-09 15:24)
+   ☐ query by pfam name (autocomplete)
+   ☐ beta testing with lab groups (Laura Hug, Prof.McConkey, Todd Holiyoak, Dunker, Neufeld, Kristen Muller [algae])
+
+
+Feature: 
+   ✔ show the actual hits for protein (when hovering) @done (16-11-15 12:22)
+   ☐ zoom in on specific internal nodes (for graph making )
+   ☐ link GO, link SuperFam
+   ✔ grey out the ones without proteome attached @done (16-11-15 17:27)
+   ☐ user friendly way to query for domain architecture (they might not know pfam domain id)
+   ☐ clean up tree label (metagenome, unclassified)
+   ☐ hide nodes without information
+   ☐ reverse search (whats special about this group?) @low
+   ☐ querying for species with 2 domains in the genome, as opposed to be in the same protein @low
+   ☐ lineage specific information, precomputed @low
+   ☐ More informative tree taxonomy label: 
+      ☐ First idea: when computing common ancestor taxonomy, ignore all metagenomes, unclassified nodes
+      ☐ Second idea: use the naming from Laura's tree to compute phylum level information, for all nodes without ncbi taxonomy information, or is classified as metagenome
+   ✔ reporting no hits when result not found (perhaps modal) @critical @done (16-11-17 15:43)
+   ☐ export to PDF or SVG
+   ✔ make crystal clear to user that they are searching for "containing" or "exact match" @done (16-11-19 15:35)
+   ✔ fix the infinite loop issue @critical @done (16-11-17 15:43)
+   ☐ reflect evolutionary length in the tree 
+   ☐ text label not shown correctly @high
+   ☐ Display next level rank (phylum to family) @low
+   ✔ disable searching with Pfam_accession @done (16-11-18 10:31)
+   ✔ fix animation cannot do @low @done (16-12-06 11:08)
+   ☐ reset button
+   ☐ query functionality
+   ☐ hide data
+   ☐ URL query, ?query=PF000064*dfdfd   
+   ✔ resolve tree UI issue    @done (16-11-17 15:57)
+   ✔ resolve CORS issue @done (16-11-17 16:05)
+   ✔ when query string is empty, return empty suggestions @done (16-11-17 16:05)
+   ✔ resolve magicsuggest UI issue @done (16-11-18 10:26)
+   ✔ backbutton does not work, drawer.js:78, cannot read nodes of undefined, happens when tree highlighted and hit back? (the root tree, with backbutton hit) @done (16-11-18 10:31)
+   ☐ italicize/recolor different species vs internal 
+   ☐ Use species GENUS name in leaf node
+   ☐ Color path based on proportion of hits within a group (if missing with large hits, color it blue, it hit amongst missing red)
+
+
+   Bugs:
+      ☐ Node display error when recentered
+      ☐ 
+
+Scraping Procedure:
+   Each number in the file is the JGI IMGI accession number, 
+   https://img.jgi.doe.gov/cgi-bin/m/main.cgi
+   enter the number in quick genome search, click go
+   then wait
+
+         some notes:
+            Ignore CPR in naming 
+            only use whatever that comes after CP_ ...
+   ☐ Clear visual distinction between missing information (collapsed + visual arcs), information not found
+
+Cypher Graph Query Language: 
+   ☐ Give me unique architectures for all taxonomy
+   MATCH (t:Taxonomy) <-[:belongsTo] - (prt:Proteome) <- [:within] - (seq:ProteinSeq) - [:hasArchitecture] -> (arch:Architecture) RETURN (t,arch) WHERE t.id IN GIVEN_LIST
+      then just filter out the common architectures that is > 50% of the taxonomy
+   ☐ Give me all architectures starting with "PF00068" and is associated with GO:123865
+      MATCH (a:Architecture) <- [:partOf] - (d:Domain) - [:associatedWith] -> (g:GO{id:'GO:123685'}) RETURN g WHERE a.domainComposition LIKE 'PF00068%';
+   ☐ 
+
+
+Version 1 Features TODO:
+   ✔ tree labelling form, attach tree id, taxonomy id to the pop up box @done (16-12-08 16:12)
+      ✔ add the ability to get the tree directly from backend, along with manual label information overriden automatic ones @done (16-12-10 19:02)
+      ✔ test run the form with un-pruned tree @done (16-12-10 20:34)
+
+   ✔ Summary Box @done (16-12-09 12:03)
+      ✔ Computation has trouble @done (16-12-08 19:47)
+      ✔ End point for query used not set yet @done (16-12-09 11:41)
+         ✔ finish domain endpoint @done (16-12-09 10:06)
+         ✔ architecture endpoint has problems @done (16-12-09 10:06)
+         ✔ query used domain @done (16-12-09 10:14)
+      ✔ Change donut chart Display @done (16-12-09 11:41)
+         ✔ remove label @done (16-12-09 11:41)
+         ✔ change legend location @done (16-12-09 11:41)
+         ✔ adding highlight @done (16-12-09 11:41)
+         ✔ removing existing tooltip @done (16-12-09 11:41)
+   ✔ Bug: recentering node freeze in the middle @done (16-12-09 11:57)
+      ✔ Easiest fix, just remove and re display all nodes @done (16-12-09 11:57)
+   ✔ Architecture end point for each node returned @done (16-12-09 10:36)
+   ☐ getNextLevel algorithm, we should have phylum, class, and end, in total three levels, instead of view depth
+   ☐ When computing genus representative, be sure we say "Genus Rep" vs "Class Rep" vs "Phylum Rep"
+   ☐ Architecture hits display 
+      ☐ highlight node info stuff
+      ☐ run into a problem where architecture is not displayed properly
+   ☐ Taxonomy Hits computation
+      ☐ not working yet
+   ✔ Architecture hits computation (going to each tree) @done (16-12-09 10:36)
+   ✔ Summary distribution computation @done (16-12-09 13:37)
+   ✔ Query used metadata in returned result @done (16-12-09 13:37)
+   ✔ Change backend to allow searching, taxonomy id to the pop up box for domains without specific order @done (16-12-09 13:37)
+   ✔ Label click and recentering? @done (16-12-09 13:37)
+
+   ✔ Download SVG @done (16-12-09 17:23)
+   ☐ Download all hits 
+   ☐ Bug: query chcker is not working properly with domain queries
+   ✔ A GO button next to input @done (16-12-09 17:28)
+   ✔ Loading bar @done (16-12-09 17:40)
+   ☐ Evolutionary length
+   ☐ Performance: current architecture computation is a bit slow (might wait for 20+ seconds)
+   ☐ Bug: sometimes tree highlight is not reset
+   ☐ Bug: tree highlight is very weird, it does not go to the second level sometimes
+      reproduce, search Domain, PF05342
+      click Bacteroidetes
+      
+
+Bugs:
+   ☐ Cannot go to third level or deeper, nodes would freeze
+   ☐ 
+
+
+ Stories:
+   ☐ nuclear evenlope, Keratins, 
+
+
+
+ ☐ highlight taxonomy tree path, change it to blue
+ ☐ 
+
+
+ ☐ finish children summary for this node
+
+
+ autoscale font size
+ find the best summary chart display size, so that default is not hidden
+
+
+
+ Hey Andrew,
+
+Nice! It is way more responsive and looks great.
+
+A few things I noticed or am confused about:
+- searching by taxonomy only seems to work for exact genome names. Is it possible to allow for intermediate ranks to be searched (e.g., Chloroflexi) and all descendant genomes to be highlighted?
+- when search for a protein domain, it would be great if the search result "summary" box could indicate the number of proteins found in each phylum (say in square brackets) AND what percentage of genomes this is in the phylum (e.g., Chloroflexi [23, 63.2%]). This notation would need to be explained somewhere, but think it would be useful for a number of applications.
+- really, I'd love to have the above summary data for a given protein domains (e.g., Chloroflexi [23, 63.2%]) at ranks other than phylum. This would be bulky to display on the screen, but if a table could be downloaded for different ranks (or a single Excel sheet summarizing results at all ranks) this would be amazing. 
+
+Minor picky things:
+- if possible, a spinner when loading the different trees would be great. It is fairly responsive now, but it still takes several seconds to load the larger trees. I expect this so am not worried, but other users may think the program has crashed.
+- the search result "summary" box could be laid out a bit better though I suspect this is related to me being on a laptop with a 13" screen (see attached)
+- there is currently no way to close the search result "summary" box which is a bit problematic on smaller screens since it can overlap with the tree
+
+ ☐ Searching for intermediate ranks will be a little harder to implement using the existing search interface, which assumes that the inuput is from a list of NCBI tax ids. Since internal nodes don't necessarily have a corresponding NCBI tax id, we'd have to search (via autocompletion as well) directly on the tree.
+ ☐ summary chart's CSV is under its way, just need to add a new button
+
+
+
+ ✔ replace un-namedgroup with the closest ancestral rank @done (18-02-28 05:12)
+ ✔ IST setting up server @done (18-04-20 17:04)
+ ✔ Loading progress bar @done (18-02-28 05:12)
+ ✔ chart running off the screen @done (18-04-20 17:04)
+
+
+ ✔ In TSV, other than # hit and percentage, add an extra column showing the total # of genomes in that species @done (18-04-20 18:15)
+ ✔ make autocomplete able to respond to pfam ID queries @done (18-04-20 17:24) fixed pfam_id to pfam_acc, that solved the issue
+ ☐ Phydo docker installation
+ ☐ restructure phydo database for more regularized tree structure/annotation/taxonomy
+
+
+ ☐ mouse move
+ ☐ refactor tree highlighting
+ ☐ KEGG backend
+
+
+ ☐ set highlighted info
+ ☐ retrieve info about specific node
+ ☐ store all highlight info
+ ☐ retrieve all highlight info
+
+
+ ☐ mutate node highlight state
+ ☐ retrieve node highlight state
+
+highlighter class
+type = TAX | DOMAIN | ALL
+
+highlighter.highlightNodes(type, node_list)
+anyHighlighted() boolean
+highlighter.clear(type)
+highlighter.getHighlightedTypes(node)
+isNodeHighlighted(node, type)
+highlighter.clearNodeHighlight(node, type)
+highlighter.markNodeHighlight(node, type(s))
+highlighter.getState()
+highlighter.setState(highlighterState)
+
+// singleton
+highlighter = new Highlighter
+
+highlightType:
+   - setHighlightState(node, true|false)
+      - node boolean as well as node class name
+
+change highlighter:
+   - change the `hits` attributes
+   - static method should be separated from dynamic ones
+   - change constant so that we have one SEARCH_TYPE to use
+   - change methods that does highlighting to changing the hits attribute
+   - history should change from saving highlight states to hits instead

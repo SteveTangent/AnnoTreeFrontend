@@ -1,0 +1,3 @@
+export const SERVER_BASE_URL = 'http://example.com/my_api'; // change this
+export const BACTERIAL_DATABASE = 'gtdb_bacteria';
+export const ARCHAEAL_DATABASE = 'gtdb_archaea';

@@ -1,0 +1,61 @@
+@import "color"; 
+@import "mixin"; 
+
+body{
+    font-family: 'Lato' 'Open Sans';
+}
+
+.appHeader{
+    padding: 8px 18px;
+    min-height: 60px;
+    background-color: @primaryBg;
+    font-family: 'Montserrat';
+    font-weight: 200;
+    .brand{
+        img{
+            width: 50px;
+            height: 50px;
+            margin-top: -4px;
+            margin-right: 8px;
+        }
+        color: @em2bg;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+    .actions{
+        list-style: none;
+        .action-item{
+            font-size: 1.2rem;
+            display: inline-block;
+            color: @em2bg;
+            a{
+                color:@em2bg;
+            }
+            padding: 8px 6px;
+            padding-top: 14px;
+            &:hover{
+                color: lighten(@em2bg,20%);
+                .onHover;
+            }
+        }
+    }
+    .news-dot{
+        display: inline-block;
+        position: absolute;
+        top: -6px;
+        right: -8px;
+        background-color: red;
+        border-radius: 50%;
+        width: 7px;
+        height: 7px;
+    }
+}
+
+.appFooter{
+    padding: 8px 10px;
+    min-height: 40px;
+    font-size: 1rem;
+    background-color: @primaryBg;
+    color: @em2bg;
+    text-align: center;
+}

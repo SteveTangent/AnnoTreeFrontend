@@ -1,0 +1,29 @@
+@import '../../style/color';
+@import '../../style/mixin';
+
+.summaryBox{
+    background-color: white;
+    opacity: 0.9;
+    padding: 5px;
+    .title{
+        font-size: 18px; 
+    }
+    overflow: visible;
+    .downloadHitDistribution{
+      text-align: center;
+      background-color: darken(@primaryFg, 10%);
+      font-size: 12px;
+      padding: 10px 8px;
+      margin-top: 5px;
+      display: inline-block;
+      margin-left: 4px;
+      border-radius: 50%;
+      &:hover{
+        background-color: darken(@primaryFg, 15%);
+        .onHover;
+      }
+    }
+}
+.summaryBox * {
+    overflow: visible;
+}

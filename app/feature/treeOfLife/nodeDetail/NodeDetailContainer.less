@@ -1,0 +1,41 @@
+@import '../../../style/color';
+@import '../../../style/mixin';
+.nodeDetailContainer{
+    position: absolute;
+    z-index: 100;
+    .simpleBox{
+        background-color: fadeout(@primaryFg,10%);
+        width: 400px;
+    }
+    .moveIcon:hover{
+        cursor: move;
+        color: lighten(@em2bg, 10%);
+    }
+    .nodeDetailTitle{
+        cursor: move;
+    }
+    .action-section{
+        text-align: center;
+        padding-bottom: 12px;
+        .action-item{
+            padding: 4px 8px;
+            color: @em2fg;
+            background-color: lighten(@primaryBg, 20%);
+            color: @primaryFg;
+            border-radius: 3px;
+            margin-bottom: 3px;
+            &:hover{
+                background-color: @primaryBg;
+                .onHover;
+            }
+        }
+    }
+    .detailResultSection{
+        position:relative;
+        min-width:150px;
+        min-height:50px;
+        background-color:inherit;
+    }
+}
+
+

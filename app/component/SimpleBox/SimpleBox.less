@@ -1,0 +1,45 @@
+@import '../../style/color';
+@import '../../style/mixin';
+
+.simpleBox{
+    margin-right: 20px; 
+    margin-top: 20px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 0px 1px @primaryBg;
+    .simpleBox-header{
+        border-radius: 5px 5px 0 0;
+        background: @primaryBg;
+        padding: 5px 10px;
+        .title{
+            color: @em2bg;
+            &.title-left{
+                text-overflow: ellipsis;
+                max-width: 365px;
+                white-space: nowrap;
+                display: inline-block;
+                overflow: hidden;
+            }
+            &.title-right{
+                float: right;
+                i{
+                    color: darken(@em2bg, 10%);
+                    &:hover{
+                        color: lighten(@em2bg, 10%);
+                        .onHover;
+                    }
+                }
+            }
+        }
+        &:after{
+            display: table;
+            content: ' ';
+            clear: both;
+        }
+    }
+    .simpleBox-body{
+        padding: 10px 10px;
+    }
+}
+
+
+

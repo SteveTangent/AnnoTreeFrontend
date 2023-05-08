@@ -1,0 +1,32 @@
+.taxonomyHitPlot{
+    .plotContainer{
+        position:relative;
+        display: inline-block;
+    }
+    .rectangle{
+        position: absolute;
+        transition: all linear 0.2s;
+    }
+    @hitColor: #72bb53;
+    .hit{
+        background-color: @hitColor;
+        &:hover{
+            background-color: darken(@hitColor, 10%);
+        }
+    }
+    @noHitColor: #cbe8ba;
+    .noHit{
+        background-color: @noHitColor;
+        &:hover{
+            background-color: darken(@noHitColor, 10%);
+        }
+    }
+    @noInfoColor: #d6d6d6;
+    .noInfo{
+        background-color: @noInfoColor;
+        &:hover{
+            background-color: darken(@noInfoColor, 10%);
+        }
+    }
+
+}

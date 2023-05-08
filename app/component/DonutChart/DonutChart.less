@@ -1,0 +1,88 @@
+@import "../../style/mixin";
+.donutChart{
+    .slices{
+        .slice{
+            opacity: 0.5;
+            &.highlighted{
+                opacity: 1;
+                .onHover;
+                cursor: initial;
+            }
+        }
+    }
+    .legendContainer{
+        padding: 0 20px;
+        max-height: 500px;
+        overflow-y: scroll;
+        .legend{
+            display: inline-block;
+            margin-right: 8px;
+            opacity: 0.7;
+            &.highlighted{
+                opacity: 1;
+                text{
+                    font-style: italic;
+                    font-weight: 500;
+                }
+                .onHover;
+            }
+            .color-tag{
+                float: left;
+                margin-right: 5px;
+                width: 15px;
+                height: 15px;
+                display: inline-block;
+            }
+        }
+    }
+    
+    .centerText{
+        .centerText-main{
+            font-size: 32px;
+            font-weight: 500;
+            position: relative;
+        }
+        .centerText-sub{
+            font-size: 10px;
+            position:relative; 
+            opacity: 0.8;
+        }
+    }
+
+    path.slice{
+        stroke-width:2px;
+    }
+
+    polyline{
+        opacity: .3;
+        stroke: black;
+        stroke-width: 2px;
+        fill: none;
+    }
+
+    .labelValue
+    {
+        font-size: 60%;
+        opacity: .5;
+        
+    }
+
+    .toolTip {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        position: absolute;
+        display: none;
+        width: auto;
+        height: auto;
+        background: none repeat scroll 0 0 white;
+        border: 0 none;
+        border-radius: 8px 8px 8px 8px;
+        box-shadow: -3px 3px 15px #888888;
+        color: black;
+        font: 12px sans-serif;
+        padding: 5px;
+        text-align: center;
+    }
+    text {
+      font: 12px sans-serif;
+    }
+}
