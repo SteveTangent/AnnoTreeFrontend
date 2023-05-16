@@ -60,4 +60,4 @@ Please make sure that `app/Config.js` is pointed to the correct backend URL.
 ### Issues and contributing
 
 Please feel free to open an issue on Bitbucket page for developers to review.
-# AnnoTreeNew
+# AnnoTreeFrontend
