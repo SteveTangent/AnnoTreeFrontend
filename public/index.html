@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>AnnoTree</title>
+    <style>
+      /* -----------------------------------------------------
+        Pure CSS Progress Bars
+        GitHub Project: https://github.com/rkchauhan/pure-css-progress-bars/
+        By: Ravikumar Chauhan
+        Find me on -
+        Twitter: https://twitter.com/rkchauhan01
+        Facebook: https://www.facebook.com/ravi032chauhan
+        GitHub: https://github.com/rkchauhan
+        CodePen: http://codepen.io/rkchauhan
+      -------------------------------------------------------- */
+      /* -----------------------------------------------------
+         CSS Progress Bars
+      -------------------------------------------------------- */
+      .cssProgress {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .cssProgress .progress1,
+      .cssProgress .progress2,
+      .cssProgress .progress3 {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        font-family: "Helvetica", sans-serif;
+      }
+      .cssProgress .cssProgress-bar {
+        display: block;
+        float: left;
+        width: 0%;
+        height: 100%;
+        background: #b0cbff;
+        box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.1);
+        -webkit-transition: width 0.8s ease-in-out;
+                transition: width 0.8s ease-in-out;
+      }
+      .cssProgress .cssProgress-label {
+        position: absolute;
+        overflow: hidden;
+        left: 0px;
+        right: 0px;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 0.7em;
+        text-align: center;
+        text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+      }
+      .cssProgress .cssProgress-info {
+        background-color: rgba(102, 204, 255, 0.4) !important;
+      }
+      .cssProgress .cssProgress-right {
+        float: right !important;
+      }
+      .cssProgress .cssProgress-label-left {
+        margin-left: 10px;
+        text-align: left !important;
+      }
+      .cssProgress .cssProgress-label-right {
+        margin-right: 10px;
+        text-align: right !important;
+      }
+      .cssProgress .cssProgress-label2 {
+        display: block;
+        margin: 2px 0;
+        padding: 0 8px;
+        font-size: 0.8em;
+      }
+      .cssProgress .cssProgress-label2.cssProgress-label2-right {
+        text-align: right;
+      }
+      .cssProgress .cssProgress-label2.cssProgress-label2-center {
+        text-align: center;
+      }
+      .cssProgress .cssProgress-stripes,
+      .cssProgress .cssProgress-active,
+      .cssProgress .cssProgress-active-right {
+        background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.125) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.125) 50%, rgba(255, 255, 255, 0.125) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.125) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.125) 50%, rgba(255, 255, 255, 0.125) 75%, transparent 75%, transparent);
+        background-size: 35px 35px;
+      }
+      /* -----------------------------------------------------
+        Progress Bar 1
+      -------------------------------------------------------- */
+      .progress1 {
+        background-color: rgba(230, 230, 230, 0.3);
+        box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+      .progress1 .cssProgress-bar {
+        height: 18px;
+        /*
+          sorry to tell you that the progress bar is fake :(
+          pad pad
+        */
+        -webkit-animation: cssFakeProgress 100s ease-in-out;
+        -ms-animation: cssFakeProgress 100s ease-in-out;
+        animation: cssFakeProgress 100s ease-in-out;
+      }
+      .progress1 .cssProgress-label {
+        line-height: 18px;
+      }
+
+      @-webkit-keyframes cssFakeProgress {
+        0%{
+          width: 2%;
+        }
+        10%{
+          width: 40%;
+        }
+        30%{
+          width: 65%;
+        }
+        70%{
+          width: 85%;
+        }
+        90%{
+          width:95%;
+        }
+        100%{
+          width:100%;
+        }
+      }
+      @-ms-keyframes cssFakeProgress {
+        0%{
+          width: 2%;
+        }
+        10%{
+          width: 40%;
+        }
+        30%{
+          width: 65%;
+        }
+        70%{
+          width: 85%;
+        }
+        90%{
+          width:95%;
+        }
+        100%{
+          width:100%;
+        }
+      }
+      @keyframes cssFakeProgress {
+        0%{
+          width: 2%;
+        }
+        10%{
+          width: 40%;
+        }
+        30%{
+          width: 65%;
+        }
+        70%{
+          width: 85%;
+        }
+        90%{
+          width:95%;
+        }
+        100%{
+          width:100%;
+        }
+      }
+    </style>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127712049-1"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127712049-1');
+    </script>
+    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+  </head>
+  <body>
+    <div id='root'>
+     <img style="margin: 0 auto; display: block; width: 300px; height: 300px;"src="annotree_logo_1_transparent.png" alt="">
+      <div style="text-align: center; margin-top: 10px; font-size: 16px">
+        An interactive microbial tree of life browser.
+        <br/>
+        Loading... Please note that <b>Chrome</b> browser is recommended.
+      </div>
+      <div class="cssProgress cssProgress-info" style="width:50%; margin: 20px auto;">
+        <div class="progress1">
+          <div class="cssProgress-bar">
+            <span class="cssProgress-label"></span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; width: 500px; margin: auto; text-overflow: auto;">
+          <br/>
+          Version 95 is available now, please clear browser cache to load the newest tree.
+      </div>
+    </div>
+
+    <script src="jss.min.js"></script>
+    <script src="bundle.js"></script>
+    <svg id="emptysvg" xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:1;height:1;display:none;"/>
+  </body>
+</html>
