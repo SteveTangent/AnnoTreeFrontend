@@ -31,7 +31,9 @@ export default class TreeStore{
   @observable treeType = TreeConstant.BACTERIAL_TREE;
   // hold all available trees for display
   @observable trees = {};
-  @observable currentDisplayLevel = TreeConstant.ORDER;
+  // @observable currentDisplayLevel = TreeConstant.ORDER;
+
+  @observable currentDisplayLevel = TreeConstant.CLASS;
   @observable disabledDisplayLevels = [];
   @observable fontSize = 12;
   @observable groupBandLevel = TreeConstant.PHYLUM;
@@ -159,7 +161,9 @@ export default class TreeStore{
     this.fontSize = 12;
     this.nodeDetail = null;
     this.groupBandLevel = TreeConstant.PHYLUM;
-    this.resetToLevel(TreeConstant.ORDER);
+    // this.resetToLevel(TreeConstant.ORDER);
+
+    this.resetToLevel(TreeConstant.CLASS);
     // each tree rendering will remember the previous tree state
     // a reset should clean displayHistory
     this.clearDisplayHistory();

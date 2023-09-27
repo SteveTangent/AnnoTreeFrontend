@@ -204,10 +204,16 @@ export default class QueryBoxContainer extends Component{
             </div>
 
             {currentSearchOption.length !== 0 &&
-              <div className='AdvancedContainer'>
-                <button className='AdvancedButton' onClick={this.onTileClick}> Advanced
-                </button>
-              </div>
+              // <div className='AdvancedContainer'>
+              //   <button className='AdvancedButton' onClick={this.onTileClick}> Advanced
+              //   </button>
+              // </div>
+
+                // no advanced option for r214
+                <div className='AdvancedPlaceHolder'>
+                  <div className='AdvancedDiv'>
+                  </div>
+                </div>
             }
 
 
