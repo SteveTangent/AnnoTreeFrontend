@@ -199,11 +199,12 @@ class App extends Component {
           </div>
         </div>
         <footer className="appFooter">
-          AnnoTree {AppConstant.VERSION}; GTDB Bacteria {AppConstant.GTDB_BAC_VERSION}; GTDB Archaea {AppConstant.GTDB_AR_VERSION}; Pfam {AppConstant.PFAM_VERSION}; KEGG {AppConstant.KEGG_VERSION}; TIGRFAM {AppConstant.TIGRFAM_VERSION}
+          {/*AnnoTree {AppConstant.VERSION}; GTDB Bacteria {AppConstant.GTDB_BAC_VERSION}; GTDB Archaea {AppConstant.GTDB_AR_VERSION}; Pfam {AppConstant.PFAM_VERSION}; KEGG {AppConstant.KEGG_VERSION}; TIGRFAM {AppConstant.TIGRFAM_VERSION}*/}
+          AnnoTree {AppConstant.VERSION}; GTDB Bacteria {AppConstant.GTDB_BAC_VERSION}; GTDB Archaea {AppConstant.GTDB_AR_VERSION}}
           <br />
           Built with <i className="fa fa-heart" style={{color: "#f06595"}}></i> by folks in Doxey Lab
           <br/>
-          © Doxey Lab 2017-2022, University of Waterloo Department of Biology
+          © Doxey Lab 2017-2024, University of Waterloo Department of Biology
         </footer>
       </div>
     );

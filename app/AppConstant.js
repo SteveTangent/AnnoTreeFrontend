@@ -1,9 +1,9 @@
 export const APP_CLICKED = 'APP_CLICKED';
 
 // app and annotation db version info
-export const VERSION = 'v1.2.0';
-export const GTDB_BAC_VERSION = 'Release R95';
-export const GTDB_AR_VERSION = 'Release R95';
+export const VERSION = 'v2.0.0';
+export const GTDB_BAC_VERSION = 'Release R214';
+export const GTDB_AR_VERSION = 'Release R214';
 export const PFAM_VERSION = 'v27.0';
 export const KEGG_VERSION = 'UniRef100: March 6, 2018';
 export const TIGRFAM_VERSION = 'v15.0';
@@ -13,6 +13,7 @@ export const SEARCH_TAX = 'tax';
 export const SEARCH_PFAM = 'pfam';
 export const SEARCH_KEGG = 'kegg';
 export const SEARCH_TIGRFAM = 'tigrfam';
+// export const SEARCH_TIGRFAM = 'interpro';
 export const SEARCH_ALL = 'all'; // special ALL type
 
 
@@ -41,7 +42,8 @@ const keggOption = {
 };
 
 const tigrfamOption = {
-  displayText: 'TIGRFAM',
+  // displayText: 'TIGRFAM',
+  displayText: 'InterPro',
   placeholder: 'Searching for genomes containing ALL of given families'
 };
 
