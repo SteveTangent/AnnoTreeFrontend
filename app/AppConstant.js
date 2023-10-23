@@ -12,8 +12,8 @@ export const TIGRFAM_VERSION = 'v15.0';
 export const SEARCH_TAX = 'tax';
 export const SEARCH_PFAM = 'pfam';
 export const SEARCH_KEGG = 'kegg';
-export const SEARCH_TIGRFAM = 'tigrfam';
-// export const SEARCH_TIGRFAM = 'interpro';
+// export const SEARCH_TIGRFAM = 'tigrfam';
+export const SEARCH_TIGRFAM = 'interpro';
 export const SEARCH_ALL = 'all'; // special ALL type
 
 
@@ -42,8 +42,8 @@ const keggOption = {
 };
 
 const tigrfamOption = {
-  // displayText: 'TIGRFAM',
-  displayText: 'InterPro',
+  displayText: 'TIGRFAM',
+  // displayText: 'InterPro',
   placeholder: 'Searching for genomes containing ALL of given families'
 };
 
