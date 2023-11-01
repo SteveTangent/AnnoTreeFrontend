@@ -38,7 +38,8 @@
             }
         }
     }
-    @input_container_width: 440px;
+    //@input_container_width: 440px;
+    @input_container_width: 505px;
     .inputContainer{
         display: inline-block;
         margin-left: 1px;
@@ -200,8 +201,10 @@
 
     .uploadContainer{
         display: inline-block;
-        min-width: 120px;
-        position: relative;
+        //min-width: 120px;
+        min-width: 100px;
+        //position: relative;
+        position: absolute;
         height: 35px;
 
         .uploadButton{
@@ -210,7 +213,8 @@
             border: none;
             padding: 7px 15px;
             color: darken(@em3fg,10%);
-            font-size: 14px;
+            //font-size: 14px;
+            font-size: 12px;
             border-radius: 0 5px 5px 0;
             height: 35px;
         }

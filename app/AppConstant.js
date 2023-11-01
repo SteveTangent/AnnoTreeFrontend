@@ -17,12 +17,29 @@ export const SEARCH_TIGRFAM = 'interpro';
 export const SEARCH_ALL = 'all'; // special ALL type
 
 
+// add more annotations need: AppConstant
+// subfamily of Interpro other than pfam and kegg:
+//
+// export const SEARCH_CATH = '';
+// export const SEARCH_CDD = '';
+// export const SEARCH_HAMAP = '';
+// export const SEARCH_PANTHER = '';
+// export const SEARCH_PIRSF = '';
+// export const SEARCH_PRINTS = '';
+// export const SEARCH_PROFILES = '';
+// export const SEARCH_PATTERNS = '';
+// export const SEARCH_SFLD = '';
+// export const SEARCH_SMART = '';
+// // super family
+// export const SEARCH_SUPF = '';
+
+
 export const AVAILABLE_HIGHLIGHTS = [SEARCH_TAX, SEARCH_PFAM, SEARCH_KEGG, SEARCH_TIGRFAM];
 // CSS classes in `treeStyle.less` that specifies color of highlighting
 export const HIGHLIGHT_CLASSES = {
 	[SEARCH_TAX]: 'taxHighlighted',
 	[SEARCH_PFAM]: 'pfamHighlighted',
-  [SEARCH_KEGG]: 'keggHighlighted',
+    [SEARCH_KEGG]: 'keggHighlighted',
 	[SEARCH_TIGRFAM]: 'tigrfamHighlighted',
 };
 
@@ -41,15 +58,22 @@ const keggOption = {
   placeholder: 'Enter a comma separated KO number'
 };
 
+
+// change tigrfam: AppConstant.js
 const tigrfamOption = {
-  displayText: 'TIGRFAM',
+  // displayText: 'TIGRFAM',
   // displayText: 'InterPro',
-  placeholder: 'Searching for genomes containing ALL of given families'
+  // displayText: 'Combined',
+    displayText: 'InterPro',
+  // placeholder: 'Searching for genomes containing ALL of given families'
+    placeholder: 'genomes containing ALL id in InterPro member database'
 };
+
 
 export const QUERY_BOX_OPTIONS = {
   [SEARCH_TAX]: taxOption,
-  [SEARCH_PFAM]: pfamOption,
+  // [SEARCH_PFAM]: pfamOption,
   [SEARCH_KEGG]: keggOption,
   [SEARCH_TIGRFAM]: tigrfamOption,
+
 };
