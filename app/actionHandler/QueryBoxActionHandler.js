@@ -6,6 +6,10 @@ import * as _ from 'lodash';
 import Handlers from 'queryBox/QueryOptionHandler';
 
 import Papa from 'papaparse';
+import donutChart from "../component/DonutChart";
+
+
+
 
 export default class QueryBoxActionHandler extends ViewActionHandler{
   constructor(props){
@@ -15,6 +19,8 @@ export default class QueryBoxActionHandler extends ViewActionHandler{
     this.summaryBoxStore = this.stores.summaryBoxStore;
     this.queryService = this.services.queryService;
     Handlers.initializeOptionHandlers(this.stores, this.services);
+
+    this.debouncedAutocomplete = this.debounce(this.handleAutocomplete, 300);
   }
 
   // return the phrase that will be used to query server for suggestions
@@ -148,6 +154,27 @@ export default class QueryBoxActionHandler extends ViewActionHandler{
     }
    }
 
+  // debounce
+  debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
+
+  // debouncedHandleViewAction(handler,QueryText) {
+  //   this.debounce(() => {
+  //     var autocompletePhrase = this.getAutocompletePhrase(QueryText);
+  //     handler.updateSuggestion(autocompletePhrase);
+  //   }, 300);
+  // }
+  handleAutocomplete(queryHandler, queryText) {
+    console.log('debounce');
+    var autocompletePhrase = this.getAutocompletePhrase(queryText);
+    queryHandler.updateSuggestion(autocompletePhrase);
+  }
+
   handleAction(action){
     var queryBoxStore = this.queryBoxStore;
     var queryOptionHandler = Handlers.selectOptionHandler(queryBoxStore.selectedOption);
@@ -165,11 +192,19 @@ export default class QueryBoxActionHandler extends ViewActionHandler{
         queryBoxStore.query = queryText; // maintain state consistency
         queryBoxStore.warning = null;
         queryBoxStore.suggestions = []; // clear all suggestions
+        // try{
+        //   var autocompletePhrase = this.getAutocompletePhrase(queryText);
+        //   queryOptionHandler.updateSuggestion(autocompletePhrase);
+        // }catch (err){
+        //   queryBoxStore.warning = {message: err.message};
+        //   return;
+        // }
+
         try{
-          var autocompletePhrase = this.getAutocompletePhrase(queryText);
-          queryOptionHandler.updateSuggestion(autocompletePhrase);
+          this.debouncedAutocomplete(queryOptionHandler,queryText);
         }catch (err){
           queryBoxStore.warning = {message: err.message};
+          console.log(err)
           return;
         }
         break;

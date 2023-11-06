@@ -1,11 +1,13 @@
 import { observable, computed, action } from 'mobx';
 import * as AppConstant from 'AppConstant';
 import * as QueryBoxConstant from './QueryBoxConstant';
+import {SEARCH_TIGRFAM} from "../../AppConstant";
 
 export default class QueryBoxStore{
   @observable options = AppConstant.QUERY_BOX_OPTIONS;
   @observable _searchOptions = _.cloneDeep(QueryBoxConstant.SEARCH_OPTIONS);
-  @observable selectedOption = AppConstant.SEARCH_KEGG;
+  // @observable selectedOption = AppConstant.SEARCH_KEGG;
+  @observable selectedOption = AppConstant.SEARCH_TIGRFAM;
   @observable optionsShown = false;
   @observable suggestions = [];
   @observable query = '';

@@ -178,7 +178,9 @@ export default class NodeDetailContainer extends Component{
       Cell: props=>(<a style={{'cursor':'pointer'}}> Protein Sequence </a>)
     }];
     var accessorToHeaderMapping = {
-      'tigrfamId': "TIGRFAM ID",
+      // 'tigrfamId': "TIGRFAM ID",
+
+      'tigrfamId': "IDs",
       'pfamId': 'Pfam Family',
       'keggId': 'KEGG ID',
       'geneId': 'Gene ID',

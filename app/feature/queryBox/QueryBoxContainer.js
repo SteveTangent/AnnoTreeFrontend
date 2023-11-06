@@ -63,6 +63,15 @@ export default class QueryBoxContainer extends Component{
       payload: newQueryText,
     });
   }
+
+  // handleQueryTextChange(e){
+  //   e.stopPropagation();
+  //   var newQueryText = e.target.value;
+  //
+  //   // debouncedHandleViewAction(newQueryText);
+  //
+  // }
+
   handleSuggestionClicked(e,suggestion){
     e.stopPropagation();
     AppDispatcher.handleViewAction({
@@ -250,6 +259,11 @@ export default class QueryBoxContainer extends Component{
               </div>
             }
           </div>
+          <text style={{color: 'white',fontSize:'12px'}}>
+            Search for families, domains, proteins, or keywords. <br/>The database includes Pfam, PANTHER, CATH-Gene3D,
+            CDD, HAMAP, NCBIfam, PIRSF, PRINTS, PROSITE, SFLD, SMART, SUPERFAMILY, NCBIfam, KEGG, and InterPro.
+          </text>
+
         </div>
       );
   }

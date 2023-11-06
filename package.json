@@ -10,6 +10,8 @@
     "test": "npm run build; cd public/; python -m SimpleHTTPServer & echo $! > pid.log; sleep 0.5 && curl localhost:8000 && echo $?; kill `cat pid.log` && rm pid.log"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
     "babel-core": "~6.7.*",
     "babel-loader": "~6.2.*",
     "babel-plugin-transform-class-properties": "^6.9.1",
@@ -27,12 +29,12 @@
     "json-loader": "^0.5.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "markdown-to-html": "*",
     "postcss-loader": "^1.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "~1.12.*",
-    "webpack-dev-server": "~1.14.*",
-    "markdown-to-html": "*"
+    "webpack-dev-server": "~1.14.*"
   },
   "dependencies": {
     "constitute": "^1.6.2",

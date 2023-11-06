@@ -64,7 +64,7 @@ const tigrfamOption = {
   // displayText: 'TIGRFAM',
   // displayText: 'InterPro',
   // displayText: 'Combined',
-    displayText: 'InterPro',
+    displayText: 'SearchByText',
   // placeholder: 'Searching for genomes containing ALL of given families'
     placeholder: 'genomes containing ALL id in InterPro member database'
 };
@@ -73,7 +73,7 @@ const tigrfamOption = {
 export const QUERY_BOX_OPTIONS = {
   [SEARCH_TAX]: taxOption,
   // [SEARCH_PFAM]: pfamOption,
-  [SEARCH_KEGG]: keggOption,
+  // [SEARCH_KEGG]: keggOption,
   [SEARCH_TIGRFAM]: tigrfamOption,
 
 };
