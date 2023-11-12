@@ -1,6 +1,10 @@
 About
 ----
-AnnoTree is a web tool for visualization of genome annotations across large phylogenetic trees. AnnoTree version 1.2 includes [KEGG](https://www.genome.jp/kegg/), [PFAM](https://pfam.xfam.org/) and [Tigrfam](https://www.jcvi.org/tigrfams) annotations for over 30,000 bacterial and 1600 archaeal genomes. Phylogenetic and taxonomy information is derived from the [GTDB](http://gtdb.ecogenomic.org/) database (Release R95).
+AnnoTree is a web tool for visualization of genome annotations across large phylogenetic trees. AnnoTree version 2.0 beta includes [KEGG](https://www.genome.jp/kegg/) and [InterPro](https://www.ebi.ac.uk/interpro) annotations for 80,789 bacterial and 4,416 archaeal genomes. Phylogenetic and taxonomy information is derived from the [GTDB](http://gtdb.ecogenomic.org/) database (Release R214).
+
+InterPro member databases include: \
+Pfam, PANTHER, CATH-Gene3D,
+CDD, HAMAP, NCBIfam, PIRSF, PRINTS, PROSITE, SFLD, SMART, SUPERFAMILY and NCBIfam.
 
 Recommended Browser
 ---

@@ -36,7 +36,9 @@ export const ORDER = 'order';
 export const CLASS = 'class';
 export const PHYLUM = 'phylum';
 export const HIGHEST_RESOLUTION_LEVEL = SPECIES;
-export const AVAILABLE_LEVELS = [PHYLUM, CLASS, ORDER, FAMILY, GENUS, SPECIES];
+// export const AVAILABLE_LEVELS = [PHYLUM, CLASS, ORDER, FAMILY, GENUS, SPECIES];
+
+export const AVAILABLE_LEVELS = [PHYLUM, CLASS, ORDER, FAMILY];
 export const AVAILABLE_GROUP_BAND_LEVELS = [NONE, PHYLUM, CLASS, ORDER, FAMILY, GENUS];
 
 // don't display labels beyond this number

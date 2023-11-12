@@ -260,8 +260,12 @@ export default class QueryBoxContainer extends Component{
             }
           </div>
           <text style={{color: 'white',fontSize:'12px'}}>
-            Search for families, domains, proteins, or keywords. <br/>The database includes Pfam, PANTHER, CATH-Gene3D,
-            CDD, HAMAP, NCBIfam, PIRSF, PRINTS, PROSITE, SFLD, SMART, SUPERFAMILY, NCBIfam, KEGG, and InterPro.
+            Search for families, domains, proteins, or keywords. The database includes interPro
+            and KEGG databases.
+            <br/>
+            <a href={`${window.location.origin}/about.html`} target="_blank" style={{ color: '#689BF4',marginLeft: '0em'}}>
+                Learn more about the member databases
+            </a>
           </text>
 
         </div>

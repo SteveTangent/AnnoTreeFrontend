@@ -64,9 +64,10 @@ const tigrfamOption = {
   // displayText: 'TIGRFAM',
   // displayText: 'InterPro',
   // displayText: 'Combined',
-    displayText: 'SearchByText',
+    displayText: 'Annotation',
+  //   displayText: 'SearchByText',
   // placeholder: 'Searching for genomes containing ALL of given families'
-    placeholder: 'genomes containing ALL id in InterPro member database'
+    placeholder: 'genomes containing ALL id in KEGG and InterPro database'
 };
 
 
