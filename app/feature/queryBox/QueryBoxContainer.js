@@ -263,7 +263,7 @@ export default class QueryBoxContainer extends Component{
             Search for families, domains, proteins, or keywords. The database includes interPro
             and KEGG databases.
             <br/>
-            <a href={`${window.location.origin}/about.html`} target="_blank" style={{ color: '#689BF4',marginLeft: '0em'}}>
+            <a href={`${window.location.origin}/annotree/app/about.html`} target="_blank" style={{ color: '#689BF4',marginLeft: '0em'}}>
                 Learn more about the member databases
             </a>
           </text>
