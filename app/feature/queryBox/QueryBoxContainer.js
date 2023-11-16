@@ -264,7 +264,7 @@ export default class QueryBoxContainer extends Component{
             and KEGG databases.
             <br/>
             <a href={`${window.location.origin}/annotree/app/about.html`} target="_blank" style={{ color: '#689BF4',marginLeft: '0em'}}>
-                Learn more about the member databases
+                Learn more about the member databases.
             </a>
           </text>
 

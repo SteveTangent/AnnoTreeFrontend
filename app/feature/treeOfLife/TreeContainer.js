@@ -15,10 +15,31 @@ import { SketchPicker } from 'react-color'
 @observer
 export default class TreeContainer extends Component{
   static proptypes = {
-    treeStore: React.PropTypes.object.isRequired, 
+    treeStore: React.PropTypes.object.isRequired,
   }
   constructor(props) {
     super(props);
+
+    const levelLength = TreeConstant.AVAILABLE_LEVELS.length
+    this.state = {
+      isHovering: Array(levelLength).fill(false)
+    };
+  }
+  handleMouseEnter = (index) => {
+
+    this.setState(prevState => {
+      const newHovering = [...prevState.isHovering];
+      newHovering[index] = true;
+      return { isHovering: newHovering };
+    });
+  }
+
+  handleMouseLeave = (index) => {
+    this.setState(prevState => {
+      const newHovering = [...prevState.isHovering];
+      newHovering[index] = false;
+      return { isHovering: newHovering };
+    });
   }
 
   handleBackClick(e){
@@ -117,10 +138,20 @@ export default class TreeContainer extends Component{
   getLevels(currentDisplayLevel, disabledDisplayLevels) {
     return TreeConstant.AVAILABLE_LEVELS.map((l, i) => {
       if (this.getLevelClass(l, currentDisplayLevel, disabledDisplayLevels) === 'enabled'){
-        return (<li key={i} className={this.getLevelClass(l, currentDisplayLevel, disabledDisplayLevels)}
-             onClick={(e) => this.handleLevelClicked(e, l)}>
-          {l}
-        </li>);
+        return (
+              <li
+                onMouseEnter={()=>this.handleMouseEnter(i)}
+                onMouseLeave={()=>this.handleMouseLeave(i)}
+                key={i} className={this.getLevelClass(l, currentDisplayLevel, disabledDisplayLevels)}
+                 onClick={(e) => this.handleLevelClicked(e, l)}>
+              {
+                  this.state.isHovering[i] && (l === 'species' || l === 'genus') &&(
+                      <div className="popup-box">
+                        Genus and species level are not recommended as it may slow down the website.
+                      </div>
+                  )}
+              {l}
+              </li>);
       } else{
         return (<li key={i} className={this.getLevelClass(l, currentDisplayLevel, disabledDisplayLevels)}>
           {l}
