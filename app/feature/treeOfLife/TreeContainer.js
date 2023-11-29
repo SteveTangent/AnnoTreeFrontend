@@ -183,7 +183,8 @@ export default class TreeContainer extends Component{
 
         <div className="currentLevelIndicatorContainer">
           <div className="currentLevelIndicator">
-            Resolution level:
+            {/*Resolution level:*/}
+            Outer ring annotation:
               <ul className="levelList">
                 {this.getLevels(treeStore.currentDisplayLevel, treeStore.disabledDisplayLevels)}
               </ul>
