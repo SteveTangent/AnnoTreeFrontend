@@ -7,6 +7,7 @@ import Handlers from 'queryBox/QueryOptionHandler';
 
 import Papa from 'papaparse';
 import donutChart from "../component/DonutChart";
+import {ARCHAEAL_TREE, BACTERIAL_TREE} from "../feature/treeOfLife/TreeConstant";
 
 
 
@@ -218,7 +219,16 @@ export default class QueryBoxActionHandler extends ViewActionHandler{
           encodeURIComponent(queryBoxStore.query);
         var searchOptions = queryBoxStore.currentSearchOption.map((opt)=>'&'+opt['name']+'='+opt['value']).join('');
         window.location.href = url + '#/?' + queryParam + searchOptions;
+        //
+
+
+        // queryBoxStore.query = ''
+
+          // this.treeStore.handleTreeTypeChanged(curTreeType)
         queryOptionHandler.handleQuery();
+        // if(queryBoxStore.query.startsWith('bacteria')||queryBoxStore.query.startsWith('archaea')){
+        //   queryBoxStore.query = ''
+        // }
         break;
       case QueryBoxConstant.QUERY_SUGGESTION_CLICKED:
         this.handleQuerySuggestionClicked(action.payload);

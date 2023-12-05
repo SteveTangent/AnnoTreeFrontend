@@ -1,5 +1,5 @@
 import { observable, computed, action } from 'mobx';
-import * as AppConstant from 'AppConstant';
+import * as AppConstant from '../../AppConstant';
 import * as QueryBoxConstant from './QueryBoxConstant';
 import {SEARCH_TIGRFAM} from "../../AppConstant";
 

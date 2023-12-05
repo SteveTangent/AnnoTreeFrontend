@@ -13,7 +13,12 @@ export const SEARCH_TAX = 'tax';
 export const SEARCH_PFAM = 'pfam';
 export const SEARCH_KEGG = 'kegg';
 // export const SEARCH_TIGRFAM = 'tigrfam';
-export const SEARCH_TIGRFAM = 'interpro';
+// export const SEARCH_TIGRFAM = 'interpro';
+export const SEARCH_TIGRFAM = 'annotation';
+
+export const SEARCH_TOKEN_BACTERIA = 'token_bacteria'
+export const SEARCH_TOKEN_ARCHAEA = 'token_archaea'
+
 export const SEARCH_ALL = 'all'; // special ALL type
 
 
@@ -72,9 +77,9 @@ const tigrfamOption = {
 
 
 export const QUERY_BOX_OPTIONS = {
-  [SEARCH_TAX]: taxOption,
-  // [SEARCH_PFAM]: pfamOption,
-  // [SEARCH_KEGG]: keggOption,
-  [SEARCH_TIGRFAM]: tigrfamOption,
+    [SEARCH_TAX]: taxOption,
+    // [SEARCH_PFAM]: pfamOption,
+    // [SEARCH_KEGG]: keggOption,
+    [SEARCH_TIGRFAM]: tigrfamOption,
 
 };

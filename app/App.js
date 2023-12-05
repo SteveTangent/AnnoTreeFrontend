@@ -11,8 +11,8 @@ import QueryBoxActionHandler from './actionHandler/QueryBoxActionHandler';
 import SummaryBoxActionHandler from './actionHandler/SummaryBoxActionHandler'; 
 
 import * as AppConstant from './AppConstant';
-import * as TreeConstant from 'treeOfLife/TreeConstant'
-import * as QueryBoxConstant from 'queryBox/QueryBoxConstant';
+import * as TreeConstant from 'feature/treeOfLife/TreeConstant'
+import * as QueryBoxConstant from 'feature/queryBox/QueryBoxConstant';
 import * as Config from './Config';
 import DonutChart from 'DonutChart/';
 
@@ -23,6 +23,7 @@ import TreeService from 'TreeService';
 import 'style/';
 import * as Util from 'util/';
 import * as _ from 'lodash';
+import {ARCHAEAL_TREE, BACTERIAL_TREE} from "feature/treeOfLife/TreeConstant";
 /*----------  store initialization  ----------*/
 
 // tree store initialization
@@ -75,11 +76,13 @@ function initializeHandlers(stores,services, AppDispatcher){
 function bootstrapApp(){
   initializeServices()
     .then(function(services){
+      console.log('bootsrap first then')
       return initializeStores(services).then(function(stores){
         return {services,stores};
       });
     })
     .then(function(servicesAndStores){
+      console.log('bootsrap second then')
       var services = servicesAndStores.services;
       var stores = servicesAndStores.stores;
       initializeHandlers(stores,services,AppDispatcher);
@@ -101,7 +104,28 @@ function bootstrapApp(){
         AppDispatcher.handleViewAction({
           type: QueryBoxConstant.QUERY_SUBMITTED
         });
+
+        // console.log(qstring)
+        let curTreeType = ''
+        //example: archaea_rtfx2g7tsrpax8n9ey0kmfdfhjkm3vf4iof20rbj
+        if(qstring.startsWith('archaea')){
+          curTreeType = ARCHAEAL_TREE
+        }
+        else if (qstring.startsWith('bacteria')){
+          curTreeType = BACTERIAL_TREE
+        }
+        else{
+          curTreeType = BACTERIAL_TREE
+        }
+
+        AppDispatcher.handleViewAction({
+          type: TreeConstant.TREE_TYPE_CHANGED,
+          payload: curTreeType,
+        });
+
       }
+
+
       // whether or not to show news dot for current app version
       var showNewsDot = Config.HAS_NEWS && !Util.readCookie('news_read_'+AppConstant.VERSION);
       render(<App stores={stores} showNewsDot={showNewsDot}/>, document.getElementById('root'));
